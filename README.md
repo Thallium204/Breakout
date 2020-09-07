@@ -2,6 +2,6 @@
 
 blahdy blahdy blah
 
-lmao
+kaan is gay
 
 second commit
