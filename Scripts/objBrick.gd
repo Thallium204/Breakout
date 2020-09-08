@@ -7,5 +7,6 @@ func _ready():
 
 
 
-func _on_areaBrick_area_entered(area):
-	queue_free()
+func _on_area_entered(area):
+	if area.name == "areaBall":
+		queue_free()

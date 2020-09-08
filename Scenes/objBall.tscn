@@ -7,7 +7,6 @@
 radius = 40.0
 
 [node name="objBall" type="Sprite"]
-position = Vector2( 88.0994, 109.457 )
 texture = ExtResource( 2 )
 script = ExtResource( 1 )
 
