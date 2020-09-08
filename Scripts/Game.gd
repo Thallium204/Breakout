@@ -1,14 +1,17 @@
 extends Node2D
 
 onready var Window = get_node("Window")
+
 var windowSize 
-var rows = 4
-var columns = 8
+
+export(int) var rows  
+export(int) var columns 
+
+export(Color) var startingColor 
+export(Color) var endingColor  
 
 var objBrick_load = preload("res://Scenes/objBrick.tscn")
-
 var playerBar_load = preload("res://Scenes/playerBar.tscn")
-
 
 
 # Called when the node enters the scene tree for the first time.
@@ -18,6 +21,7 @@ func _ready():
 		for colPos in range(columns):
 			var objBrick = objBrick_load.instance()
 			objBrick.rect_position = Vector2(colPos * 240, rowPos * 140) + Vector2(20, 20)
+			objBrick.color = startingColor + (endingColor - startingColor)/(rows - 1) * rowPos
 			Window.add_child(objBrick)
 			
 	var playerBar = playerBar_load.instance()

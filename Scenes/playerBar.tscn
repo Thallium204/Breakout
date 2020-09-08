@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://Scenes/playerBar.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/playerBar.gd" type="Script" id=1]
 
 [node name="playerBar" type="ColorRect"]
 margin_left = 760.0
