@@ -1,13 +1,42 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scripts/objBrick.gd" type="Script" id=1]
 
+[sub_resource type="ConvexPolygonShape2D" id=1]
+points = PoolVector2Array( 0, 0, 100, 50, 0, 100 )
+
+[sub_resource type="ConvexPolygonShape2D" id=2]
+points = PoolVector2Array( 0, 0, 200, 0, 100, 50 )
+
 [node name="objBrick" type="ColorRect"]
+margin_top = -1.18921
 margin_right = 200.0
-margin_bottom = 100.0
+margin_bottom = 98.8108
 rect_min_size = Vector2( 16, 9 )
 rect_pivot_offset = Vector2( 80, 45 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="areaHorizontal" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="areaHorizontal"]
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="areaHorizontal"]
+position = Vector2( 200, 100 )
+rotation = 3.14159
+shape = SubResource( 1 )
+
+[node name="areaVertical" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="areaVertical"]
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="areaVertical"]
+position = Vector2( 200, 100 )
+rotation = 3.14159
+shape = SubResource( 2 )
+[connection signal="area_entered" from="areaHorizontal" to="." method="_on_areaBrick_area_entered"]
+[connection signal="area_entered" from="areaVertical" to="." method="_on_areaBrick_area_entered"]

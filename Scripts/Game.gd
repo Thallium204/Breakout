@@ -12,6 +12,7 @@ export(Color) var endingColor
 
 var objBrick_load = preload("res://Scenes/objBrick.tscn")
 var playerBar_load = preload("res://Scenes/playerBar.tscn")
+var objBall_load = preload("res://Scenes/objBall.tscn")
 
 
 # Called when the node enters the scene tree for the first time.
@@ -26,6 +27,12 @@ func _ready():
 			
 	var playerBar = playerBar_load.instance()
 	Window.add_child(playerBar)
+	
+	var objBall = objBall_load.instance()
+	objBall.position = playerBar.rect_position + Vector2(playerBar.rect_size[0]/2, -50)
+	Window.add_child(objBall)
+	
+	
 
 
 
