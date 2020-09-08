@@ -10,8 +10,8 @@ startingColor = Color( 0.619608, 0.196078, 0.737255, 1 )
 endingColor = Color( 0.2, 0.678431, 0.937255, 1 )
 
 [node name="Window" type="Control" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
+margin_right = 1920.0
+margin_bottom = 1080.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
