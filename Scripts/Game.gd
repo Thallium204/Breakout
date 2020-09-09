@@ -4,6 +4,7 @@ extends Node2D
 onready var Bricks = get_node("Bricks")
 
 var windowSize 
+var level = 1
 
 export(int) var rows  
 export(int) var columns 
