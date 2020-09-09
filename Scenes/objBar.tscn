@@ -1,13 +1,15 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scripts/objBar.gd" type="Script" id=1]
+[ext_resource path="res://Fonts/voxilent.ttf" type="DynamicFontData" id=2]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 50.0
 height = 300.0
 
 [sub_resource type="DynamicFont" id=2]
-size = 64
+size = 61
+font_data = ExtResource( 2 )
 
 [node name="objBar" type="StaticBody2D"]
 position = Vector2( 800, 930 )
@@ -41,6 +43,7 @@ anchor_bottom = 1.0
 margin_right = 400.0
 margin_bottom = 100.0
 custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "0"
 align = 1
 valign = 1
