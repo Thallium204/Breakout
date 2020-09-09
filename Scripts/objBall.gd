@@ -4,6 +4,9 @@ var moveVec
 var rng = RandomNumberGenerator.new()
 var arc = 0.1 
 var speed = 8
+var speedMod = 1.5
+var timer = 0
+var speedCap = pow(speedMod, 3)
 
 func _ready():
 	rng.randomize()
@@ -17,4 +20,12 @@ func _physics_process(delta):
 		print(collision_info.collider.name)
 		if "Brick" in collision_info.collider.name:
 			collision_info.collider.queue_free()
+			
+	timer += delta
+	if timer > 5:
+		timer = 0
+		speed = speed * speedMod
+	if speed > 5 * speedCap:
+		speed = 5 * speedCap
+	
 	position += moveVec * speed * delta * 100

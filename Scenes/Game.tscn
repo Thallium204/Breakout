@@ -3,7 +3,10 @@
 [ext_resource path="res://Scripts/Game.gd" type="Script" id=1]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 10, 540 )
+extents = Vector2( 1, 540 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 960, 1 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 960, 10 )
@@ -35,3 +38,9 @@ shape = SubResource( 2 )
 [node name="shapeRight" type="CollisionShape2D" parent="Window/areaHorizontal"]
 position = Vector2( 1920, 540 )
 shape = SubResource( 1 )
+
+[node name="areaTop" type="Area2D" parent="Window"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Window/areaTop"]
+position = Vector2( 960, 0 )
+shape = SubResource( 2 )
