@@ -1,6 +1,7 @@
 extends Node2D
 
-onready var Window = get_node("Window")
+onready var Game = get_tree().get_root().get_node("Game")
+onready var Bricks = Game.get_node("Bricks")
 
 var windowSize 
 
@@ -14,27 +15,29 @@ var objBrick_load = preload("res://Scenes/objBrick.tscn")
 var objBar_load = preload("res://Scenes/objBar.tscn")
 var objBall_load = preload("res://Scenes/objBall.tscn")
 
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	windowSize = Window.rect_position
+	
+	generateBricks()
+	
+	var objBar = objBar_load.instance()
+	Game.add_child(objBar)
+	
+	var objBall = objBall_load.instance()
+	objBall.position = objBar.position + Vector2(objBar.barSize[0]/2, -50)
+	Game.add_child(objBall)
+
+func generateBricks():
 	for rowPos in range(rows):
 		for colPos in range(columns):
 			var objBrick = objBrick_load.instance()
 			objBrick.position = Vector2(colPos * 240, rowPos * 140) + Vector2(20, 20)
 			objBrick.get_node("colorOutline/colorBrick").color = startingColor + (endingColor - startingColor)/(rows - 1) * rowPos
 			objBrick.name = "objBrick"+str(rowPos)+str(colPos)
-			Window.add_child(objBrick)
-			print(objBrick.name)
-			
-	var objBar = objBar_load.instance()
-	Window.add_child(objBar)
-	
-	var objBall = objBall_load.instance()
-	objBall.position = objBar.position + Vector2(objBar.barSize[0]/2, -50)
-	Window.add_child(objBall)
-	
-	
+			Bricks.add_child(objBrick)
+
+func tryToGenerateBricks():
+	if Bricks.get_children().size() == 0:
+		generateBricks()
 
 
 
@@ -43,7 +46,5 @@ func _ready():
 
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-	
+
+
