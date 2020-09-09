@@ -18,7 +18,9 @@ func _physics_process(delta):
 		moveVec = moveVec.bounce(collision_info.normal) # changing our exit trajectory
 		if "objBrick" in collision_info.collider.name:
 			collision_info.collider.queue_free()
-	
+		if "bodyLose" in collision_info.collider.name:
+			get_tree().quit()
+		
 	if speed < speedCap:
 		speed += delta
 
