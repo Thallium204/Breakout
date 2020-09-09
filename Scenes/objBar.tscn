@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/objBar.gd" type="Script" id=1]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 50.0
+height = 300.0
+
+[node name="objBar" type="StaticBody2D"]
+position = Vector2( 800, 930 )
+script = ExtResource( 1 )
+
+[node name="colorSides" type="ColorRect" parent="."]
+margin_right = 400.0
+margin_bottom = 100.0
+color = Color( 1, 0.831373, 0.509804, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="colorCenter" type="ColorRect" parent="."]
+margin_left = 50.0
+margin_right = 350.0
+margin_bottom = 100.0
+color = Color( 1, 0.921569, 0.768627, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 200, 50 )
+rotation = 1.5708
+shape = SubResource( 1 )

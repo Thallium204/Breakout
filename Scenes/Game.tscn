@@ -1,9 +1,12 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scripts/Game.gd" type="Script" id=1]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10, 540 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 960, 10 )
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 1 )
@@ -19,11 +22,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="areaHorizontal" type="Area2D" parent="Window"]
+[node name="areaHorizontal" type="StaticBody2D" parent="Window"]
 
 [node name="shapeLeft" type="CollisionShape2D" parent="Window/areaHorizontal"]
 position = Vector2( 0, 540 )
 shape = SubResource( 1 )
+
+[node name="shapeTop" type="CollisionShape2D" parent="Window/areaHorizontal"]
+position = Vector2( 960, 0 )
+shape = SubResource( 2 )
 
 [node name="shapeRight" type="CollisionShape2D" parent="Window/areaHorizontal"]
 position = Vector2( 1920, 540 )

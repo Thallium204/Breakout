@@ -11,7 +11,7 @@ export(Color) var startingColor
 export(Color) var endingColor  
 
 var objBrick_load = preload("res://Scenes/objBrick.tscn")
-var playerBar_load = preload("res://Scenes/playerBar.tscn")
+var objBar_load = preload("res://Scenes/objBar.tscn")
 var objBall_load = preload("res://Scenes/objBall.tscn")
 
 
@@ -21,15 +21,15 @@ func _ready():
 	for rowPos in range(rows):
 		for colPos in range(columns):
 			var objBrick = objBrick_load.instance()
-			objBrick.rect_position = Vector2(colPos * 240, rowPos * 140) + Vector2(20, 20)
-			objBrick.color = startingColor + (endingColor - startingColor)/(rows - 1) * rowPos
+			objBrick.position = Vector2(colPos * 240, rowPos * 140) + Vector2(20, 20)
+			objBrick.get_node("ColorRect").color = startingColor + (endingColor - startingColor)/(rows - 1) * rowPos
 			Window.add_child(objBrick)
 			
-	var playerBar = playerBar_load.instance()
-	Window.add_child(playerBar)
+	var objBar = objBar_load.instance()
+	Window.add_child(objBar)
 	
 	var objBall = objBall_load.instance()
-	objBall.position = playerBar.rect_position + Vector2(playerBar.rect_size[0]/2, -50)
+	objBall.position = objBar.position + Vector2(objBar.barSize[0]/2, -50)
 	Window.add_child(objBall)
 	
 	
