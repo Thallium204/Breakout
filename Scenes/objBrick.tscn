@@ -6,9 +6,21 @@ height = 100.0
 
 [node name="objBrick" type="StaticBody2D"]
 
-[node name="colorBrick" type="ColorRect" parent="."]
+[node name="colorOutline" type="ColorRect" parent="."]
 margin_right = 200.0
 margin_bottom = 100.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="colorBrick" type="ColorRect" parent="colorOutline"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_top = 8.0
+margin_right = -8.0
+margin_bottom = -8.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
