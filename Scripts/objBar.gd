@@ -1,6 +1,6 @@
 extends StaticBody2D
 
-var barSize = Vector2(400,100)
+onready var barSize = get_node("colorSides").rect_size
 
 func _input(event):
 	

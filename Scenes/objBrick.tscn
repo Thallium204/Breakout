@@ -6,7 +6,7 @@ height = 100.0
 
 [node name="objBrick" type="StaticBody2D"]
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="colorBrick" type="ColorRect" parent="."]
 margin_right = 200.0
 margin_bottom = 100.0
 __meta__ = {
