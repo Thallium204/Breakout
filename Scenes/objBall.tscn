@@ -14,3 +14,11 @@ shape = SubResource( 1 )
 
 [node name="sprBall" type="Sprite" parent="."]
 texture = ExtResource( 2 )
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+amount = 7
+lifetime = 0.2
+local_coords = false
+texture = ExtResource( 2 )
+gravity = Vector2( 0, 0 )
+color = Color( 1, 1, 1, 0.321569 )
