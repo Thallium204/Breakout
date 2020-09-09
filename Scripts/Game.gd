@@ -1,7 +1,7 @@
 extends Node2D
 
-onready var Game = get_tree().get_root().get_node("Game")
-onready var Bricks = Game.get_node("Bricks")
+
+onready var Bricks = get_node("Bricks")
 
 var windowSize 
 
@@ -20,11 +20,11 @@ func _ready():
 	generateBricks()
 	
 	var objBar = objBar_load.instance()
-	Game.add_child(objBar)
+	add_child(objBar)
 	
 	var objBall = objBall_load.instance()
 	objBall.position = objBar.position + Vector2(objBar.barSize[0]/2, -50)
-	Game.add_child(objBall)
+	add_child(objBall)
 
 func generateBricks():
 	for rowPos in range(rows):

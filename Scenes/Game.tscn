@@ -1,14 +1,20 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
+[ext_resource path="res://Scripts/Game.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Images/tile.png" type="Texture" id=2]
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 960, 1 )
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 1, 540 )
 
 [node name="Game" type="Node2D"]
+script = ExtResource( 1 )
+rows = 4
+columns = 8
+startingColor = Color( 0.529412, 0.145098, 0.72549, 1 )
+endingColor = Color( 0.294118, 0.807843, 0.945098, 1 )
 
 [node name="texBackground" type="TextureRect" parent="."]
 margin_right = 1920.0
@@ -23,20 +29,20 @@ __meta__ = {
 
 [node name="shapeBottom" type="CollisionShape2D" parent="bodyLose"]
 position = Vector2( 960, 1080 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="bodyBorder" type="StaticBody2D" parent="."]
 
 [node name="shapeLeft" type="CollisionShape2D" parent="bodyBorder"]
 position = Vector2( 0, 540 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="shapeTop" type="CollisionShape2D" parent="bodyBorder"]
 position = Vector2( 960, 0 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="shapeRight" type="CollisionShape2D" parent="bodyBorder"]
 position = Vector2( 1920, 540 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="Bricks" type="Node2D" parent="."]

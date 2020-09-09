@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+onready var Game = get_tree().get_root().get_node("Game")
+
 var moveVec 
 var rng = RandomNumberGenerator.new()
 var arc = 0.1 

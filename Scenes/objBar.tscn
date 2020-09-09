@@ -1,10 +1,13 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scripts/objBar.gd" type="Script" id=1]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 50.0
 height = 300.0
+
+[sub_resource type="DynamicFont" id=2]
+size = 64
 
 [node name="objBar" type="StaticBody2D"]
 position = Vector2( 800, 930 )
@@ -31,3 +34,16 @@ __meta__ = {
 position = Vector2( 200, 50 )
 rotation = 1.5708
 shape = SubResource( 1 )
+
+[node name="labCoins" type="Label" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 400.0
+margin_bottom = 100.0
+custom_fonts/font = SubResource( 2 )
+text = "0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
