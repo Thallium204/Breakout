@@ -52,8 +52,10 @@ shape = SubResource( 2 )
 stream = ExtResource( 3 )
 autoplay = true
 
-[node name="objBar" parent="." instance=ExtResource( 5 )]
-position = Vector2( 760, 915.24 )
+[node name="objBar" parent="." groups=[
+"updateCoins",
+] instance=ExtResource( 5 )]
+position = Vector2( 760, 930 )
 
 [node name="objBall" parent="." instance=ExtResource( 4 )]
 position = Vector2( 960.578, 864.843 )

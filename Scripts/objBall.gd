@@ -20,6 +20,8 @@ func _physics_process(delta):
 		
 		#if we are colliding with the brick
 		if "objBrick" in collision_info.collider.name:
+			Globals.score += collision_info.collider.value
+			get_tree().call_group("updateCoins", "updateUI")
 			collision_info.collider.queue_free()
 			speed += 0.1
 			get_node("sndBounce").play()
