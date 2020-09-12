@@ -11,7 +11,7 @@ height = 300.0
 size = 61
 font_data = ExtResource( 2 )
 
-[node name="objBar" type="StaticBody2D"]
+[node name="objBar" type="KinematicBody2D"]
 position = Vector2( 800, 930 )
 script = ExtResource( 1 )
 
@@ -40,8 +40,9 @@ shape = SubResource( 1 )
 [node name="labCoins" type="Label" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_top = -0.42041
 margin_right = 400.0
-margin_bottom = 100.0
+margin_bottom = 99.5796
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "0"

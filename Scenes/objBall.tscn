@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scripts/objBall.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Images/ball.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Sounds/bounce.wav" type="AudioStream" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 40.0
@@ -22,3 +23,10 @@ local_coords = false
 texture = ExtResource( 2 )
 gravity = Vector2( 0, 0 )
 color = Color( 1, 1, 1, 0.321569 )
+
+[node name="sndBounce" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+pitch_scale = 2.0
+
+[node name="sndLowBounce" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
