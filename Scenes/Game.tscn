@@ -1,10 +1,14 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scripts/Game.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Images/tile.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Sounds/theme.wav" type="AudioStream" id=3]
 [ext_resource path="res://Scenes/objBall.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/objBar.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Assets/Images/gameover.png" type="Texture" id=6]
+[ext_resource path="res://Scripts/popupGameOver.gd" type="Script" id=7]
+[ext_resource path="res://Scenes/contScores.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Themes/themeMenu.tres" type="Theme" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 960, 1 )
@@ -12,14 +16,20 @@ extents = Vector2( 960, 1 )
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 1, 540 )
 
-[node name="Game" type="Node2D"]
+[node name="Game" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 9 )
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 rows = 4
 columns = 8
 
 [node name="texBackground" type="TextureRect" parent="."]
-margin_right = 1920.0
-margin_bottom = 1080.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 texture = ExtResource( 2 )
 stretch_mode = 2
 __meta__ = {
@@ -58,5 +68,81 @@ autoplay = true
 position = Vector2( 760, 930 )
 
 [node name="objBall" parent="." instance=ExtResource( 4 )]
-position = Vector2( 960.578, 864.843 )
+position = Vector2( 960.578, 814.446 )
+
+[node name="popupGameOver" type="PopupDialog" parent="."]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 50.0
+margin_top = 50.0
+margin_right = -50.0
+margin_bottom = -50.0
+popup_exclusive = true
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="texGameOver" type="TextureRect" parent="popupGameOver"]
+anchor_right = 1.0
+anchor_bottom = 0.3
+margin_left = 20.0
+margin_right = -20.0
+texture = ExtResource( 6 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="contScores" parent="popupGameOver" instance=ExtResource( 8 )]
+anchor_top = 0.3
+anchor_bottom = 0.6
+
+[node name="contButtons" type="HBoxContainer" parent="popupGameOver"]
+anchor_top = 0.6
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 20.0
+margin_right = -20.0
+margin_bottom = -20.0
+custom_constants/separation = 20
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="btnMenu" type="Button" parent="popupGameOver/contButtons"]
+margin_right = 580.0
+margin_bottom = 372.0
+size_flags_horizontal = 3
+text = "Menu"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="btnPlayAgain" type="Button" parent="popupGameOver/contButtons"]
+margin_left = 600.0
+margin_right = 1180.0
+margin_bottom = 372.0
+size_flags_horizontal = 3
+text = "play again"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="btnStore" type="Button" parent="popupGameOver/contButtons"]
+margin_left = 1200.0
+margin_right = 1780.0
+margin_bottom = 372.0
+size_flags_horizontal = 3
+disabled = true
+text = "Store"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="finished" from="sndTheme" to="." method="_on_sndTheme_finished"]
+[connection signal="about_to_show" from="popupGameOver" to="popupGameOver" method="_on_popupGameOver_about_to_show"]
+[connection signal="pressed" from="popupGameOver/contButtons/btnMenu" to="popupGameOver" method="_on_btnMenu_pressed"]
+[connection signal="pressed" from="popupGameOver/contButtons/btnPlayAgain" to="popupGameOver" method="_on_btnPlayAgain_pressed"]

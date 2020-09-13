@@ -1,0 +1,42 @@
+[gd_scene format=2]
+
+[node name="contButtons" type="VBoxContainer"]
+anchor_left = 0.25
+anchor_top = 0.4
+anchor_right = 0.75
+anchor_bottom = 0.75
+custom_constants/separation = 20
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="btnPlay" type="Button" parent="."]
+margin_top = 139.0
+margin_right = 960.0
+margin_bottom = 159.0
+size_flags_horizontal = 3
+text = "Play"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="btnStore" type="Button" parent="."]
+margin_top = 179.0
+margin_right = 960.0
+margin_bottom = 199.0
+disabled = true
+text = "Store"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="btnSettings" type="Button" parent="."]
+margin_top = 219.0
+margin_right = 960.0
+margin_bottom = 239.0
+disabled = true
+text = "Settings"
+__meta__ = {
+"_edit_use_anchors_": false
+}

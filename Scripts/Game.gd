@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 onready var Bricks = get_node("Bricks")
 
@@ -14,6 +14,8 @@ var objBar_load = preload("res://Scenes/objBar.tscn")
 var objBall_load = preload("res://Scenes/objBall.tscn")
 
 func _ready():
+	
+	Globals.resetScore()
 	
 	generateColorArray()
 	

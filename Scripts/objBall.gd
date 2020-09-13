@@ -3,15 +3,11 @@ extends KinematicBody2D
 onready var Game = get_tree().get_root().get_node("Game")
 
 var direVec 
-var rng = RandomNumberGenerator.new()
 var arc = 0.1 
 var speed = 8
-var speedCap = 16
 
 func _ready():
-	rng.randomize()
-	var angle = rng.randf_range(0 + arc, PI - arc)
-	direVec = Vector2(cos(angle), -sin(angle))
+	direVec = Vector2(0, 1)
 
 func _physics_process(delta):
 	var collision_info = move_and_collide(direVec * speed * delta * 100)
@@ -28,11 +24,12 @@ func _physics_process(delta):
 		
 		#if we are colliding with the bottom border of the game window
 		elif "bodyLose" in collision_info.collider.name:
-			get_tree().change_scene("res://Scenes/Menu.tscn")
+			get_node("../popupGameOver").popup_centered()
+			get_tree().paused = true 
 		
 		#if we are colliding with the player bar 
 		elif "objBar" in collision_info.collider.name:
-			direVec = (direVec + collision_info.collider_velocity.normalized()).normalized()
+			direVec = (direVec * speed * delta * 100 + collision_info.collider_velocity / 150).normalized()
 			Game.tryToGenerateRow()
 			get_node("sndLowBounce").play()
 			

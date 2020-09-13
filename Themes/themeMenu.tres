@@ -1,7 +1,12 @@
-[gd_resource type="Theme" load_steps=3 format=2]
+[gd_resource type="Theme" load_steps=5 format=2]
 
 [ext_resource path="res://Fonts/new_dynamicfont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Themes/resButton.tres" type="StyleBox" id=2]
+[ext_resource path="res://Fonts/voxilent.ttf" type="DynamicFontData" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 60
+font_data = ExtResource( 3 )
 
 [resource]
 default_font = ExtResource( 1 )
@@ -167,7 +172,7 @@ Label/constants/line_spacing = 3
 Label/constants/shadow_as_outline = 0
 Label/constants/shadow_offset_x = 1
 Label/constants/shadow_offset_y = 1
-Label/fonts/font = null
+Label/fonts/font = SubResource( 1 )
 Label/styles/normal = null
 LineEdit/colors/clear_button_color = Color( 0, 0, 0, 1 )
 LineEdit/colors/clear_button_color_pressed = Color( 0, 0, 0, 1 )
@@ -218,7 +223,7 @@ OptionButton/styles/normal = null
 OptionButton/styles/pressed = null
 Panel/styles/panel = null
 PanelContainer/styles/panel = null
-PopupDialog/styles/panel = null
+PopupDialog/styles/panel = ExtResource( 2 )
 PopupMenu/colors/font_color = Color( 0, 0, 0, 1 )
 PopupMenu/colors/font_color_accel = Color( 0, 0, 0, 1 )
 PopupMenu/colors/font_color_disabled = Color( 0, 0, 0, 1 )
