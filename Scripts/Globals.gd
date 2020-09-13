@@ -29,6 +29,8 @@ func saveGame():
 	
 func loadGame():
 	var saveFile = File.new()
+	if not saveFile.file_exists("user://saveFile.save"):
+		return
 	saveFile.open("user://saveFile.save", File.READ)
 	var saveData = parse_json(saveFile.get_line())
 	for key in saveData:
