@@ -3,11 +3,23 @@ extends KinematicBody2D
 onready var Game = get_tree().get_root().get_node("Game")
 
 var direVec 
-var arc = 0.1 
+var arc = 0.3 
 var speed = 8
 
 func _ready():
 	direVec = Vector2(0, 1)
+
+func correctAngle():
+	var angle = abs(direVec.angle())
+	if angle <= arc:
+		if angle != 0:
+			angle = arc * (direVec.y / abs(direVec.y))
+		else:
+			angle = arc 
+		direVec = Vector2(cos(angle), sin(angle))
+	elif angle >= PI - arc:
+		angle = (PI - arc) * (direVec.y / abs(direVec.y))
+		direVec = Vector2(cos(angle), sin(angle))
 
 func _physics_process(delta):
 	var collision_info = move_and_collide(direVec * speed * delta * 100)
@@ -33,7 +45,7 @@ func _physics_process(delta):
 			Game.tryToGenerateRow()
 			get_node("sndLowBounce").play()
 			
-		
+		correctAngle()
 
 
 
