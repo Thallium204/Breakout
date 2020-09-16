@@ -11,10 +11,10 @@
 [ext_resource path="res://Themes/themeMenu.tres" type="Theme" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 960, 1 )
+extents = Vector2( 540, 1 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 1, 540 )
+extents = Vector2( 1, 960 )
 
 [node name="Game" type="Control"]
 anchor_right = 1.0
@@ -24,8 +24,8 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-rows = 4
-columns = 8
+rows = 8
+columns = 5
 
 [node name="texBackground" type="TextureRect" parent="."]
 anchor_right = 1.0
@@ -39,21 +39,21 @@ __meta__ = {
 [node name="bodyLose" type="StaticBody2D" parent="."]
 
 [node name="shapeBottom" type="CollisionShape2D" parent="bodyLose"]
-position = Vector2( 960, 1080 )
+position = Vector2( 540, 1620 )
 shape = SubResource( 1 )
 
 [node name="bodyBorder" type="StaticBody2D" parent="."]
 
 [node name="shapeLeft" type="CollisionShape2D" parent="bodyBorder"]
-position = Vector2( 0, 540 )
+position = Vector2( 0, 960 )
 shape = SubResource( 2 )
 
 [node name="shapeTop" type="CollisionShape2D" parent="bodyBorder"]
-position = Vector2( 960, 0 )
+position = Vector2( 540, 0 )
 shape = SubResource( 1 )
 
 [node name="shapeRight" type="CollisionShape2D" parent="bodyBorder"]
-position = Vector2( 1920, 540 )
+position = Vector2( 1080, 960 )
 shape = SubResource( 2 )
 
 [node name="Bricks" type="Node2D" parent="."]
@@ -65,10 +65,11 @@ autoplay = true
 [node name="objBar" parent="." groups=[
 "updateCoins",
 ] instance=ExtResource( 5 )]
-position = Vector2( 760, 930 )
+position = Vector2( 540, 1370.63 )
+barSize = Vector2( 800, 200 )
 
 [node name="objBall" parent="." instance=ExtResource( 4 )]
-position = Vector2( 960.578, 814.446 )
+position = Vector2( 540, 1250 )
 
 [node name="popupGameOver" type="PopupDialog" parent="."]
 pause_mode = 2

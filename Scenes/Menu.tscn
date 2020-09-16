@@ -45,17 +45,18 @@ __meta__ = {
 }
 
 [node name="btnPlay" type="Button" parent="contButtons"]
-margin_right = 960.0
-margin_bottom = 119.056
+margin_top = 137.0
+margin_right = 540.0
+margin_bottom = 256.056
 text = "Play"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="btnStore" type="Button" parent="contButtons"]
-margin_top = 139.0
-margin_right = 960.0
-margin_bottom = 258.056
+margin_top = 276.0
+margin_right = 540.0
+margin_bottom = 395.056
 disabled = true
 text = "Store"
 __meta__ = {
@@ -63,9 +64,9 @@ __meta__ = {
 }
 
 [node name="btnSettings" type="Button" parent="contButtons"]
-margin_top = 278.0
-margin_right = 960.0
-margin_bottom = 397.056
+margin_top = 415.0
+margin_right = 540.0
+margin_bottom = 534.056
 disabled = true
 text = "Settings"
 __meta__ = {

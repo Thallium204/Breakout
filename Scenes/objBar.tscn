@@ -3,46 +3,32 @@
 [ext_resource path="res://Scripts/objBar.gd" type="Script" id=1]
 [ext_resource path="res://Fonts/voxilent.ttf" type="DynamicFontData" id=2]
 
-[sub_resource type="CapsuleShape2D" id=1]
-radius = 50.0
-height = 300.0
-
 [sub_resource type="DynamicFont" id=2]
 size = 61
 font_data = ExtResource( 2 )
 
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 50.0
+height = 300.0
+
 [node name="objBar" type="KinematicBody2D"]
-position = Vector2( 800, 930 )
 script = ExtResource( 1 )
+barSize = Vector2( 400, 100 )
 
 [node name="colorSides" type="ColorRect" parent="."]
-margin_right = 400.0
-margin_bottom = 100.0
-color = Color( 1, 0.831373, 0.509804, 1 )
+margin_left = -200.0
+margin_top = -50.0
+margin_right = 200.0
+margin_bottom = 50.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="colorCenter" type="ColorRect" parent="."]
-margin_left = 50.0
-margin_right = 350.0
-margin_bottom = 100.0
-color = Color( 1, 0.921569, 0.768627, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="shapeBar" type="CollisionShape2D" parent="."]
-position = Vector2( 200, 50 )
-rotation = 1.5708
-shape = SubResource( 1 )
-
-[node name="labCoins" type="Label" parent="."]
+[node name="labCoins" type="Label" parent="colorSides"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = -0.42041
-margin_right = 400.0
-margin_bottom = 99.5796
+margin_right = 3.05176e-05
+margin_bottom = 7.62939e-06
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "0"
@@ -51,3 +37,7 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="shapeBar" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource( 1 )
