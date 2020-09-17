@@ -11,7 +11,9 @@ font_data = ExtResource( 2 )
 radius = 50.0
 height = 300.0
 
-[node name="objBar" type="KinematicBody2D"]
+[node name="objBar" type="KinematicBody2D" groups=[
+"scoreUI",
+]]
 script = ExtResource( 1 )
 barSize = Vector2( 400, 100 )
 

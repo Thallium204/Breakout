@@ -27,11 +27,8 @@ func _physics_process(delta):
 	var collision_info = move_and_collide(direVec * speed * delta * 100)
 	var bounce = true 
 	if collision_info: # If we've collided with something
-		
 		#if we are colliding with the brick
 		if "objBrick" in collision_info.collider.name:
-			Globals.score += collision_info.collider.value
-			get_tree().call_group("updateCoins", "updateUI")
 			var remHealth = collision_info.collider.damage(ballDamage) #thats a lot of damage
 			if remHealth <= -overKill:
 				bounce = false
