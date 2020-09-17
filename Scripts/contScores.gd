@@ -1,4 +1,4 @@
-extends HBoxContainer
+extends GridContainer
 
 func updateUI():
 	get_node("labScoreLast").text = str(Globals.score)

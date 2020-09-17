@@ -34,10 +34,10 @@ __meta__ = {
 }
 
 [node name="contButtons" type="VBoxContainer" parent="."]
-anchor_left = 0.25
-anchor_top = 0.4
-anchor_right = 0.75
-anchor_bottom = 0.75
+anchor_left = 0.15
+anchor_top = 0.25
+anchor_right = 0.85
+anchor_bottom = 0.6
 custom_constants/separation = 20
 alignment = 1
 __meta__ = {
@@ -46,7 +46,7 @@ __meta__ = {
 
 [node name="btnPlay" type="Button" parent="contButtons"]
 margin_top = 137.0
-margin_right = 540.0
+margin_right = 756.0
 margin_bottom = 256.056
 text = "Play"
 __meta__ = {
@@ -55,7 +55,7 @@ __meta__ = {
 
 [node name="btnStore" type="Button" parent="contButtons"]
 margin_top = 276.0
-margin_right = 540.0
+margin_right = 756.0
 margin_bottom = 395.056
 disabled = true
 text = "Store"
@@ -65,7 +65,7 @@ __meta__ = {
 
 [node name="btnSettings" type="Button" parent="contButtons"]
 margin_top = 415.0
-margin_right = 540.0
+margin_right = 756.0
 margin_bottom = 534.056
 disabled = true
 text = "Settings"
@@ -74,4 +74,6 @@ __meta__ = {
 }
 
 [node name="contScores" parent="." instance=ExtResource( 6 )]
+anchor_top = 0.65
+anchor_bottom = 0.9
 [connection signal="pressed" from="contButtons/btnPlay" to="." method="_on_btnPlay_pressed"]
