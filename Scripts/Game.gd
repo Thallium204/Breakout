@@ -22,7 +22,7 @@ func _ready():
 	
 	for rowPos in range(rows):
 		generateRow() 
-	
+
 
 func generateRow():
 	# distance above the node at which the next row of blocks is created
@@ -30,15 +30,9 @@ func generateRow():
 	# instances objBrick, sets its paramters, changes its value and adds it as a child of the Bricks node
 	for colPos in range(columns):
 		var objBrick = objBrick_load.instance()
+		var color = colorArray[(level - 1) % colorArray.size()]
+		objBrick.configure(brickSpacing, level, color)
 		objBrick.position = Vector2(colPos * brickSpacing.x, - level * brickSpacing.y) + Vector2(20, 20)
-		var brickSize = brickSpacing - Vector2(40, 40)
-		objBrick.get_node("CollisionShape2D").shape.radius = brickSize.y / 2
-		objBrick.get_node("CollisionShape2D").shape.height = brickSize.x - brickSize.y
-		objBrick.get_node("colorOutline").rect_size = brickSize
-		objBrick.get_node("colorOutline/colorBrick").modulate = colorArray[(level - 1) % colorArray.size()]
-		objBrick.name = "objBrick"+str(level)+str(colPos)
-		objBrick.value = level 
-		objBrick.add_to_group("Level" + str(level))
 		Bricks.add_child(objBrick)
 		
 	# instance a new tween, use it to smoothly move the bricks down a row 

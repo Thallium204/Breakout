@@ -5,6 +5,8 @@ onready var Game = get_tree().get_root().get_node("Game")
 var direVec 
 var arc = 0.3 
 var speed = 8
+var ballDamage = 1
+var overKill = 3
 
 func _ready():
 	direVec = Vector2(0, 1)
@@ -23,15 +25,18 @@ func correctAngle():
 
 func _physics_process(delta):
 	var collision_info = move_and_collide(direVec * speed * delta * 100)
+	var bounce = true 
 	if collision_info: # If we've collided with something
-		direVec = direVec.bounce(collision_info.normal) # changing our exit trajectory
 		
 		#if we are colliding with the brick
 		if "objBrick" in collision_info.collider.name:
 			Globals.score += collision_info.collider.value
 			get_tree().call_group("updateCoins", "updateUI")
-			collision_info.collider.queue_free()
-			speed += 0.1
+			var remHealth = collision_info.collider.damage(ballDamage) #thats a lot of damage
+			if remHealth <= -overKill:
+				bounce = false
+				print(remHealth)
+			speed += 0.05
 			get_node("sndBounce").play()
 		
 		#if we are colliding with the bottom border of the game window
@@ -44,8 +49,10 @@ func _physics_process(delta):
 			direVec = (direVec * speed * delta * 100 + collision_info.collider_velocity / 150).normalized()
 			Game.tryToGenerateRow()
 			get_node("sndLowBounce").play()
-			
-		correctAngle()
+		
+		if bounce:
+			direVec = direVec.bounce(collision_info.normal) # changing our exit trajectory
+			correctAngle()
 
 
 
