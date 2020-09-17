@@ -35,7 +35,7 @@ func generateRow():
 		objBrick.get_node("CollisionShape2D").shape.radius = brickSize.y / 2
 		objBrick.get_node("CollisionShape2D").shape.height = brickSize.x - brickSize.y
 		objBrick.get_node("colorOutline").rect_size = brickSize
-		objBrick.get_node("colorOutline/colorBrick").color = colorArray[(level - 1) % colorArray.size()]
+		objBrick.get_node("colorOutline/colorBrick").modulate = colorArray[(level - 1) % colorArray.size()]
 		objBrick.name = "objBrick"+str(level)+str(colPos)
 		objBrick.value = level 
 		objBrick.add_to_group("Level" + str(level))

@@ -3,11 +3,11 @@
 [ext_resource path="res://Scripts/objBar.gd" type="Script" id=1]
 [ext_resource path="res://Fonts/voxilent.ttf" type="DynamicFontData" id=2]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=1]
 size = 61
 font_data = ExtResource( 2 )
 
-[sub_resource type="CapsuleShape2D" id=1]
+[sub_resource type="CapsuleShape2D" id=2]
 radius = 50.0
 height = 300.0
 
@@ -20,6 +20,18 @@ margin_left = -200.0
 margin_top = -50.0
 margin_right = 200.0
 margin_bottom = 50.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="colorCenter" type="ColorRect" parent="colorSides"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 4.0
+margin_right = -4.0
+margin_bottom = -4.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -29,7 +41,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_right = 3.05176e-05
 margin_bottom = 7.62939e-06
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "0"
 align = 1
@@ -40,4 +52,4 @@ __meta__ = {
 
 [node name="shapeBar" type="CollisionShape2D" parent="."]
 rotation = 1.5708
-shape = SubResource( 1 )
+shape = SubResource( 2 )
