@@ -12,6 +12,15 @@ func updateScores():
 		highScore = score
 	totalScore += score
 
+func addToScore(scr):
+	score += scr
+	get_tree().call_group("scoreUI","updateUI")
+
+
+
+
+
+
 func createSaveData():
 	var scoreData = {
 		"score": score,
@@ -35,3 +44,4 @@ func loadGame():
 	var saveData = parse_json(saveFile.get_line())
 	for key in saveData:
 		set(key, saveData[key])
+

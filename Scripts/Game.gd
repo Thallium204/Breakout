@@ -34,7 +34,6 @@ func generateRow():
 		objBrick.configure(brickSpacing, level, color)
 		objBrick.position = Vector2(colPos * brickSpacing.x, - level * brickSpacing.y) + Vector2(20, 20)
 		Bricks.add_child(objBrick)
-		
 	# instance a new tween, use it to smoothly move the bricks down a row 
 	var twnBricks = Tween.new()
 	add_child(twnBricks)

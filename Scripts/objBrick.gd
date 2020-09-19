@@ -8,6 +8,7 @@ var secLength = 4.0
 func damage(dmg): 
 	health -= dmg * defense
 	if health <= 0:
+		Globals.addToScore(value)
 		queue_free()
 	else:
 		updateUI()
