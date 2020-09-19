@@ -35,7 +35,6 @@ func _physics_process(delta):
 			var remHealth = collision_info.collider.damage(ballDamage) #thats a lot of damage
 			if remHealth <= -overKill:
 				bounce = false
-				print(remHealth)
 			speed += 0.05
 			get_node("sndBounce").play()
 		
