@@ -6,7 +6,7 @@ var direVec
 var arc = 0.3 
 var speed = 8
 var ballDamage = 1
-var overKill = 3
+var overKill = 3.5
 
 func _ready():
 	direVec = Vector2(0, 1)
