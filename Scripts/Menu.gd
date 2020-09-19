@@ -7,8 +7,5 @@ func _ready():
 func _on_btnPlay_pressed():
 	get_tree().change_scene("res://Scenes/Game.tscn")
 
-
-
-
 func _on_btnStore_pressed():
 	get_tree().change_scene("res://Scenes/Store.tscn")

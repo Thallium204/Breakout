@@ -12,3 +12,6 @@ func _on_btnMenu_pressed():
 func _on_btnPlayAgain_pressed():
 	get_tree().paused = false
 	get_tree().change_scene("res://Scenes/Game.tscn")
+
+
+

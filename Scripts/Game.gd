@@ -70,3 +70,24 @@ func generateColorArray(clrNum = 4):
 
 
 
+
+
+func _on_texPauseButton_gui_input(event):
+	if event is InputEventScreenTouch:
+		get_node("popupPaused").popup_centered()
+		get_tree().paused = true
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
