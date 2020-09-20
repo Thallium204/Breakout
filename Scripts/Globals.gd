@@ -100,7 +100,7 @@ func resetScore():
 func updateScores():
 	if score > highScore:
 		highScore = score
-	totalScore += score
+	totalScore += floor(score)
 	saveGame()
 
 func addToScore(scr):

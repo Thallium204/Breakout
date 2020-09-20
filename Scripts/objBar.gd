@@ -16,7 +16,7 @@ func _input(event):
 		move_and_collide(Vector2(event.relative.x, 0))
 
 func updateUI():
-	$colorSides/labCoins.text = str(Globals.score)
+	$colorSides/labCoins.text = str(floor(Globals.score))
 	
 func updateBarSize():
 	var barWidth = barSize.x * widthMod
