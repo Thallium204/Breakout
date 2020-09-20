@@ -5,11 +5,13 @@ onready var Game = get_tree().get_root().get_node("Game")
 var direVec 
 var arc = 0.3 
 var speed = 8
-var ballDamage = 1
+var ballDamage: float
 var overKill = 3.5
 
 
 func _ready():
+	var ballData = Globals.getObjectData("ball")
+	ballDamage = ballData["damage"]
 	direVec = Vector2(rand_range(-1, 1), rand_range(-arc, -1)).normalized()
 
 func correctAngle():

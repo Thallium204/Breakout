@@ -1,7 +1,6 @@
 extends Control
 
 func _ready():
-	Globals.loadGame()
 	get_node("contScores").updateUI()
 
 func _on_btnPlay_pressed():
@@ -9,3 +8,7 @@ func _on_btnPlay_pressed():
 
 func _on_btnStore_pressed():
 	get_tree().change_scene("res://Scenes/Store.tscn")
+
+
+func _on_btnReset_pressed():
+	Globals.resetData()

@@ -8,7 +8,7 @@ func _ready():
 		var dictUpgrades = Globals.objects[objName]
 		for upgName in dictUpgrades:
 			var UpgradeNode = UpgradeNode_load.instance()
-			UpgradeNode.configure(objName, upgName, dictUpgrades[upgName])
+			UpgradeNode.configure(objName, upgName)
 			$vboxUpgrades.add_child(UpgradeNode)
 
 
