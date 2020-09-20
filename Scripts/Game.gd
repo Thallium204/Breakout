@@ -63,19 +63,10 @@ func generateColorArray(clrNum = 4):
 		colorArray.append(Color(0 + i * incr, 0, 1 - i * incr)) #adds color gradient (blue)
 
 
-
-
-
-
-
-
-
-
-
 func _on_texPauseButton_gui_input(event):
 	if event is InputEventScreenTouch:
-		get_node("popupPaused").popup_centered()
 		get_tree().paused = true
+		get_node("popupPaused").popup_centered()
 
 
 
