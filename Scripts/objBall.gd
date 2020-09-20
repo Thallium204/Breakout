@@ -10,7 +10,7 @@ var overKill = 3.5
 
 
 func _ready():
-	direVec = Vector2(rand_range(-1, 1), rand_range(-0.3, -1)).normalized()
+	direVec = Vector2(rand_range(-1, 1), rand_range(-arc, -1)).normalized()
 
 func correctAngle():
 	var angle = abs(direVec.angle())
