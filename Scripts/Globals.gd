@@ -4,6 +4,47 @@ var score = 0
 var highScore = 0
 var totalScore = 0
 
+
+
+
+
+
+var skins = {
+	"ball": {
+		"plain": {
+			"displayName": "Plain",
+			"texture": "ball",
+			"cost": 0
+		},
+		"skin1": {
+			"displayName": "5upermegaultracoolskin",
+			"texture": "nine_rect", #COME BACK HERE WITH SKIN
+			"cost": 250
+		}
+	},
+	"bar": {
+		"plain": {
+			"displayName": "Plain",
+			"texture": "nine_rect", #COME BACK HERE WITH SKIN
+			"cost": 250
+		}
+	},
+	"bricks": {
+		"plain": {
+			"displayName": "Plain",
+			"texture": "brick", #COME BACK HERE WITH SKIN
+			"cost": 250
+		}
+	},
+	"background":{
+		"plain": {
+			"displayName": "Plain",
+			"texture": "space", #COME BACK HERE WITH SKIN
+			"cost": 250
+		}
+	}
+}
+
 var objects = {
 	"ball": {
 		"damage": {
@@ -38,23 +79,22 @@ var objects = {
 
 var upgs = {}
 
+var unlocks = {
+	"plain": true,
+	"skin1": false
+}
+
+
 func _ready():
 	createUpgs()
 	loadGame()
 
 func createUpgs():
-	upgs = {
-		"ball": {
-			"damage": 0, 
-			"moneyMod": 0
-		},
-		"bar": {
-			"widthMod": 0
-		},
-		"bricks": {
-			"powupRarity": 0
-		}
-	}
+	upgs = {}
+	for objName in objects:
+		upgs[objName] = {}
+		for upgName in objects[objName]:
+			upgs[objName][upgName] = 0
 
 func isMaxedOut(objName, upgName):
 	return getUpgradeIndex(objName, upgName) == getUpgradeMaxIndex(objName, upgName)
