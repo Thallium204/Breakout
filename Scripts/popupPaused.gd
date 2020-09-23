@@ -2,7 +2,7 @@ extends Popup
 
 
 func _input(event):
-	if visible == false:
+	if not visible:
 		return
 	if event is InputEventScreenTouch:
 		if event.pressed == true:

@@ -4,10 +4,10 @@ func _ready():
 	$contScores.updateUI()
 
 func _on_btnPlay_pressed():
-	get_tree().change_scene("res://Scenes/Game.tscn")
+	var _verify = get_tree().change_scene("res://Scenes/Game.tscn")
 
 func _on_btnStore_pressed():
-	get_tree().change_scene("res://Scenes/Store.tscn")
+	var _verify = get_tree().change_scene("res://Scenes/Store.tscn")
 
 
 func _on_btnReset_pressed():

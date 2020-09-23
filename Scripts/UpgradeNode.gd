@@ -14,8 +14,12 @@ func updateUI():
 	#$texObject.texture = load("path to texture")
 	$labStat.text = upgName.to_upper()
 	$progLevel.value = 100 * Globals.getUpgradeIndex(objName, upgName) / Globals.getUpgradeMaxIndex(objName, upgName)
-	$btnUpgrade.text = str(Globals.getUpgradeCost(objName, upgName))
-	$btnUpgrade.disabled = Globals.isMaxedOut(objName, upgName)
+	var isMaxedOut = Globals.isMaxedOut(objName,upgName)
+	if isMaxedOut:
+		$btnUpgrade.text = "MAX"
+	else:
+		$btnUpgrade.text = str(Globals.getUpgradeCost(objName, upgName))
+	$btnUpgrade.disabled = isMaxedOut
 
 func _on_btnUpgrade_pressed():
 	Globals.upgrade(objName, upgName)

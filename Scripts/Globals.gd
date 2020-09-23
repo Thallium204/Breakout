@@ -4,10 +4,13 @@ var score = 0
 var highScore = 0
 var totalScore = 0
 
+var brickGap = Vector2(20,20)
+var brickBrightness = 0.5
+var gameDelay = 1.3
 
+# DEV OPTIONS
 
-
-
+var freeUpgrades = true
 
 var skins = {
 	"ball": {
@@ -112,15 +115,15 @@ func getUpgradeMaxIndex(objName, upgName):
 	return getUpgradeData(objName, upgName)["levels"].size() - 1
 
 func upgrade(objName, upgName):
-	if getUpgradeIndex(objName, upgName) >= getUpgradeMaxIndex(objName, upgName):
+	if isMaxedOut(objName, upgName):
 		print("Already maxed out")
-		return 
+		return
 	var price = getUpgradeCost(objName, upgName)
-	if totalScore < price:
+	if totalScore < price and not freeUpgrades:
 		print("Stop being poor")
 		return
-	upgs[objName][upgName] += 1 
-	totalScore -= price
+	upgs[objName][upgName] += 1
+	totalScore -= price * int(not freeUpgrades)
 	saveGame()
 
 func getUpgradeValue(objName, upgName):
@@ -153,13 +156,13 @@ func addToScore(scr):
 
 
 func createSaveData():
-	var scoreData = {
+	var saveData = {
 		"score": score,
 		"highScore": highScore,
 		"totalScore": totalScore,
 		"upgs": upgs
 	}
-	return scoreData
+	return saveData
 	
 func saveGame():
 	var saveData = createSaveData()
@@ -176,6 +179,7 @@ func loadGame():
 	var saveData = parse_json(saveFile.get_line())
 	for key in saveData:
 		set(key, saveData[key])
+	saveFile.close()
 		
 func resetData():
 	score = 0

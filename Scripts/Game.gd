@@ -8,8 +8,8 @@ var colorArray = []
 var scrDiv = 0.5
 var currentPopup = null
 
-export(int) var rows  
-export(int) var columns 
+export(int) var rows
+export(int) var columns
 
 var objBrick_load = preload("res://Scenes/objBrick.tscn")
 var objBar_load = preload("res://Scenes/objBar.tscn")
@@ -21,11 +21,11 @@ func _ready():
 	
 	generateColorArray()
 	
-	for rowPos in range(rows):
-		generateRow() 
+	for _rowPos in range(rows):
+		generateRow(true)
 
 
-func generateRow():
+func generateRow(initial = false):
 	# distance above the node at which the next row of blocks is created
 	var brickSpacing = Vector2(rect_size.x / columns, (rect_size.y * scrDiv) / rows)
 	# instances objBrick, sets its paramters, changes its value and adds it as a child of the Bricks node
@@ -33,22 +33,31 @@ func generateRow():
 		var objBrick = objBrick_load.instance()
 		var color = colorArray[(level - 1) % colorArray.size()]
 		objBrick.configure(brickSpacing, level, color)
-		objBrick.position = Vector2(colPos * brickSpacing.x, - level * brickSpacing.y) + Vector2(20, 20)
+		objBrick.position = Vector2(colPos * brickSpacing.x, - level * brickSpacing.y) + Globals.brickGap / 2
 		Bricks.add_child(objBrick)
 	# instance a new tween, use it to smoothly move the bricks down a row 
 	var twnBricks = Tween.new()
+	twnBricks.name = "Tween" + str(level)
 	add_child(twnBricks)
+	var time
+	if initial:
+		time = Globals.gameDelay	# Time taken to move all initial brick rows
+	else:
+		time = 0.6					# Time taken to move one row in-game
 	twnBricks.interpolate_property(
-		Bricks, "position", 
-		Vector2(0, (level-1) * brickSpacing.y), Vector2(0, level * brickSpacing.y), 
-		0.2, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT
+		Bricks, "position",
+		null, Vector2(0, level * brickSpacing.y),
+		time, Tween.TRANS_BOUNCE, Tween.EASE_OUT
 	)
 	twnBricks.start()
+	twnBricks.connect("tween_all_completed",twnBricks,"queue_free")
 	# increments the level by one 
-	level += 1 
+	level += 1
 
 func tryToGenerateRow():
-	if get_tree().get_nodes_in_group("Level" + str(level - rows)).size() == 0:
+	var bricks = get_tree().get_nodes_in_group("Level" + str(level - rows))
+	#print(bricks)
+	if bricks.empty():
 		generateRow()
 
 func _on_sndTheme_finished():
