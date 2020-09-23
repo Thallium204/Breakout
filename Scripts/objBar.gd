@@ -13,7 +13,7 @@ func _ready():
 
 func _input(event):
 	if event is InputEventScreenDrag:
-		move_and_collide(Vector2(event.relative.x, 0))
+		move_and_collide(2*Vector2(event.relative.x, 0))
 
 func updateUI():
 	$colorSides/labCoins.text = str(floor(Globals.score))
