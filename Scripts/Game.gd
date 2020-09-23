@@ -6,6 +6,7 @@ var windowSize
 var level = 1
 var colorArray = []
 var scrDiv = 0.5
+var currentPopup = null
 
 export(int) var rows  
 export(int) var columns 
@@ -64,10 +65,7 @@ func generateColorArray(clrNum = 4):
 		colorArray.append(Color(0 + i * incr, 0, 1 - i * incr)) #adds color gradient (blue)
 
 
-func _on_texPauseButton_gui_input(event):
-	if event is InputEventScreenTouch:
-		get_tree().paused = true
-		get_node("popupPaused").popup_centered()
+
 
 
 

@@ -1,6 +1,7 @@
 extends PopupDialog
 
 func _on_popupGameOver_about_to_show():
+	get_parent().currentPopup = self
 	Globals.updateScores()
 	get_node("contScores").updateUI()
 	Globals.saveGame()

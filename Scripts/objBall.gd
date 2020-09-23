@@ -41,7 +41,8 @@ func _physics_process(delta):
 		#if we are colliding with the bottom border of the game window
 		elif "bodyLose" in collision_info.collider.name:
 			get_node("../popupGameOver").popup_centered()
-			get_tree().paused = true 
+			get_tree().paused = true
+			queue_free()
 		
 		#if we are colliding with the player bar 
 		elif "objBar" in collision_info.collider.name:

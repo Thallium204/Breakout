@@ -155,18 +155,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="texPauseButton" type="TextureRect" parent="."]
-margin_right = 147.0
+[node name="texPauseButton" type="TextureButton" parent="."]
+margin_right = 114.0
 margin_bottom = 154.0
-texture = ExtResource( 10 )
-stretch_mode = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
+texture_normal = ExtResource( 10 )
+expand = true
 
 [node name="popupPaused" type="Popup" parent="."]
 pause_mode = 2
-visible = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 12 )
@@ -216,4 +212,5 @@ __meta__ = {
 [connection signal="about_to_show" from="popupGameOver" to="popupGameOver" method="_on_popupGameOver_about_to_show"]
 [connection signal="pressed" from="popupGameOver/contButtons/btnMenu" to="popupGameOver" method="_on_btnMenu_pressed"]
 [connection signal="pressed" from="popupGameOver/contButtons/btnPlayAgain" to="popupGameOver" method="_on_btnPlayAgain_pressed"]
-[connection signal="gui_input" from="texPauseButton" to="." method="_on_texPauseButton_gui_input"]
+[connection signal="pressed" from="texPauseButton" to="popupPaused" method="_on_texPauseButton_pressed"]
+[connection signal="about_to_show" from="popupPaused" to="popupPaused" method="_on_popupPaused_about_to_show"]
