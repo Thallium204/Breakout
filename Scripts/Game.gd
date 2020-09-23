@@ -55,10 +55,11 @@ func generateRow(initial = false):
 	level += 1
 
 func tryToGenerateRow():
-	var bricks = get_tree().get_nodes_in_group("Level" + str(level - rows))
-	#print(bricks)
-	if bricks.empty():
-		generateRow()
+	for i in range(rows):
+		var bricks = get_tree().get_nodes_in_group("Level" + str(level - rows))
+		#print(bricks)
+		if bricks.empty():
+			generateRow()
 
 func _on_sndTheme_finished():
 	get_node("sndTheme").play()
