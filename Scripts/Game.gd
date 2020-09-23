@@ -54,6 +54,7 @@ func _on_sndTheme_finished():
 	get_node("sndTheme").play()
 
 func generateColorArray(clrNum = 4):
+	colorArray = []
 	var incr = 1.0/float(clrNum)
 	for i in range(clrNum):
 		colorArray.append(Color(1 - i * incr, 0 + i * incr, 0)) #adds color gradient (red)

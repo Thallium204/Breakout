@@ -1,7 +1,7 @@
 extends Control
 
 func _ready():
-	get_node("contScores").updateUI()
+	$contScores.updateUI()
 
 func _on_btnPlay_pressed():
 	get_tree().change_scene("res://Scenes/Game.tscn")
