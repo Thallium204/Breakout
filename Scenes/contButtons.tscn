@@ -12,9 +12,9 @@ __meta__ = {
 }
 
 [node name="btnPlay" type="Button" parent="."]
-margin_top = 139.0
-margin_right = 960.0
-margin_bottom = 159.0
+margin_top = 286.0
+margin_right = 540.0
+margin_bottom = 306.0
 size_flags_horizontal = 3
 text = "Play"
 __meta__ = {
@@ -22,9 +22,9 @@ __meta__ = {
 }
 
 [node name="btnStore" type="Button" parent="."]
-margin_top = 179.0
-margin_right = 960.0
-margin_bottom = 199.0
+margin_top = 326.0
+margin_right = 540.0
+margin_bottom = 346.0
 disabled = true
 text = "Store"
 __meta__ = {
@@ -32,9 +32,9 @@ __meta__ = {
 }
 
 [node name="btnSettings" type="Button" parent="."]
-margin_top = 219.0
-margin_right = 960.0
-margin_bottom = 239.0
+margin_top = 366.0
+margin_right = 540.0
+margin_bottom = 386.0
 disabled = true
 text = "Settings"
 __meta__ = {

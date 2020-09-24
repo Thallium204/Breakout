@@ -120,4 +120,32 @@ text = "Back"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="labTextTotal" type="Label" parent="."]
+anchor_left = 0.3
+anchor_top = 1.0
+anchor_right = 0.8
+anchor_bottom = 1.0
+margin_top = -125.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "Total Score:"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="labScoreTotal" type="Label" parent="."]
+anchor_left = 0.8
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -125.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "0"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="pressed" from="btnBack" to="." method="_on_btnBack_pressed"]

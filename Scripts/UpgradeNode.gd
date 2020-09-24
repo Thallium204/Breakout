@@ -24,3 +24,4 @@ func updateUI():
 func _on_btnUpgrade_pressed():
 	Globals.upgrade(objName, upgName)
 	updateUI()
+	get_tree().get_root().get_node("Store/labScoreTotal").text = str(Globals.totalScore)
