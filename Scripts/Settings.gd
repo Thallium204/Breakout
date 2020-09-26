@@ -42,6 +42,13 @@ func _on_btnNoobMode_pressed():
 		$btnNoobMode.add_color_override("font_color", Color.red)
 		$btnNoobMode.add_color_override("font_color_hover", Color.red)
 
+func updateUI_noobMode():
+	if Globals.noobMode == false:
+		$btnNoobMode.text = "Off"
+	else:
+		$btnNoobMode.text = "On"
+		$btnNoobMode.add_color_override("font_color", Color.green)
+		$btnNoobMode.add_color_override("font_color_hover", Color.green)
 
 
 
