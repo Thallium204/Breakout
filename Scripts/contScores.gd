@@ -1,9 +1,9 @@
 extends GridContainer
 
 func updateUI():
-	$labScoreLast.text = str(Globals.score)
-	$labScoreHigh.text = str(Globals.highScore)
-	$labScoreTotal.text = str(Globals.totalScore)
+	$labScoreLast.text = str(floor(Globals.score))
+	$labScoreHigh.text = str(floor(Globals.highScore))
+	$labScoreTotal.text = str(floor(Globals.totalScore))
 
 
 
