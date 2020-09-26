@@ -11,6 +11,7 @@ var gameDelay = 1.3
 # DEV OPTIONS
 
 var freeUpgrades = false
+var noobMode = false
 
 var skins = {
 	"ball": {

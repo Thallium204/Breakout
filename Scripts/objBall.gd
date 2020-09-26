@@ -48,7 +48,7 @@ func _physics_process(delta):
 			$sndBounce.play()
 		
 		#if we are colliding with the bottom border of the game window
-		elif "bodyLose" in collision_info.collider.name:
+		elif "bodyLose" in collision_info.collider.name and not Globals.noobMode:
 			get_node("../popupGameOver").popup_centered()
 			get_tree().paused = true
 			queue_free()
