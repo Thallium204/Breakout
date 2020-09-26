@@ -208,9 +208,21 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="btnMenu" type="Button" parent="popupPaused"]
+pause_mode = 2
+anchor_top = 1.0
+anchor_right = 0.3
+anchor_bottom = 1.0
+margin_top = -125.0
+text = "Menu"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="finished" from="sndTheme" to="." method="_on_sndTheme_finished"]
 [connection signal="about_to_show" from="popupGameOver" to="popupGameOver" method="_on_popupGameOver_about_to_show"]
 [connection signal="pressed" from="popupGameOver/contButtons/btnMenu" to="popupGameOver" method="_on_btnMenu_pressed"]
 [connection signal="pressed" from="popupGameOver/contButtons/btnPlayAgain" to="popupGameOver" method="_on_btnPlayAgain_pressed"]
 [connection signal="pressed" from="texPauseButton" to="popupPaused" method="_on_texPauseButton_pressed"]
 [connection signal="about_to_show" from="popupPaused" to="popupPaused" method="_on_popupPaused_about_to_show"]
+[connection signal="pressed" from="popupPaused/btnMenu" to="popupPaused" method="_on_btnMenu_pressed"]

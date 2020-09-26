@@ -1,6 +1,7 @@
 extends Popup
 
 
+
 func _input(event):
 	if not visible:
 		return
@@ -19,3 +20,9 @@ func _on_texPauseButton_pressed():
 		return
 	get_tree().paused = true
 	popup_centered()
+
+func _on_btnMenu_pressed():
+	get_tree().change_scene("res://Scenes/Menu.tscn")
+	
+
+
