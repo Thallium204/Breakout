@@ -152,17 +152,19 @@ func addToScore(scr):
 	get_tree().call_group("scoreUI","updateUI")
 	saveGame()
 
+func toggle(varName: String):
+	set(varName, not get(varName))
+	saveGame()
 
 
+# SAVE/LOAD
 
+var saveVariables = ["score","highScore","totalScore","upgs","freeUpgrades","noobMode"]
 
 func createSaveData():
-	var saveData = {
-		"score": score,
-		"highScore": highScore,
-		"totalScore": totalScore,
-		"upgs": upgs
-	}
+	var saveData = {}
+	for varName in saveVariables:
+		saveData[varName] = get(varName)
 	return saveData
 	
 func saveGame():

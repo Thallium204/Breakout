@@ -21,4 +21,5 @@ func _on_texPauseButton_pressed():
 
 func _on_btnMenu_pressed():
 	get_tree().paused = false
+	Globals.updateScores()
 	get_tree().change_scene("res://Scenes/Menu.tscn")

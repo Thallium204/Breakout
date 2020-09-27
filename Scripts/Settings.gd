@@ -1,55 +1,31 @@
 extends Control
 
-
 #var previousColor = $btnFreeUpgs.get_color("font_color") DOES NOT WORK FOR SOME REASON, CANT FIND NODE
 
-# CHANGE TO UPDATEUI SYSTEM
-func _ready():
-	updateUI_freeUpgs()
-	updateUI_noobMode()
+var txtDict = {true:"On", 			false:"Off"}
+var colDict = {true:Color.green, 	false:Color.red}
 
+func _ready():
+	updateUI()
+
+func updateUI():
+	# Free Upgrades
+	$btnFreeUpgs.text = txtDict[Globals.freeUpgrades]
+	$btnFreeUpgs.set("custom_colors/font_color", colDict[Globals.freeUpgrades])
+	$btnFreeUpgs.set("custom_colors/font_color_hover", colDict[Globals.freeUpgrades])
+	# Noob Mode
+	$btnNoobMode.text = txtDict[Globals.noobMode]
+	$btnNoobMode.set("custom_colors/font_color", colDict[Globals.noobMode])
+	$btnNoobMode.set("custom_colors/font_color_hover", colDict[Globals.noobMode])
 
 func _on_btnFreeUpgs_pressed():
-	if $btnFreeUpgs.text == "Off":
-		Globals.freeUpgrades = true
-		$btnFreeUpgs.text = "On"
-		$btnFreeUpgs.add_color_override("font_color", Color.green)
-		$btnFreeUpgs.add_color_override("font_color_hover", Color.green)
-	else:
-		Globals.freeUpgrades = false
-		$btnFreeUpgs.text = "Off"
-		$btnFreeUpgs.add_color_override("font_color", Color.red)
-		$btnFreeUpgs.add_color_override("font_color_hover", Color.red)
-# CHANGE TO UPDATEUI SYSTEM
-
-func updateUI_freeUpgs():
-	if Globals.freeUpgrades == false:
-		$btnFreeUpgs.text = "Off"
-	else:
-		$btnFreeUpgs.text = "On"
-		$btnFreeUpgs.add_color_override("font_color", Color.green)
-		$btnFreeUpgs.add_color_override("font_color_hover", Color.green)
-
+	
+	Globals.toggle("freeUpgrades")
+	updateUI()
 
 func _on_btnNoobMode_pressed():
-	if $btnNoobMode.text == "Off":
-		Globals.noobMode = true
-		$btnNoobMode.text = "On"
-		$btnNoobMode.add_color_override("font_color", Color.green)
-		$btnNoobMode.add_color_override("font_color_hover", Color.green)
-	else:
-		Globals.noobMode = false
-		$btnNoobMode.text = "Off"
-		$btnNoobMode.add_color_override("font_color", Color.red)
-		$btnNoobMode.add_color_override("font_color_hover", Color.red)
-
-func updateUI_noobMode():
-	if Globals.noobMode == false:
-		$btnNoobMode.text = "Off"
-	else:
-		$btnNoobMode.text = "On"
-		$btnNoobMode.add_color_override("font_color", Color.green)
-		$btnNoobMode.add_color_override("font_color_hover", Color.green)
+	Globals.toggle("noobMode")
+	updateUI()
 
 
 
