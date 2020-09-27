@@ -6,6 +6,7 @@ extends Control
 # CHANGE TO UPDATEUI SYSTEM
 func _ready():
 	updateUI_freeUpgs()
+	updateUI_noobMode()
 
 
 func _on_btnFreeUpgs_pressed():
@@ -37,7 +38,7 @@ func _on_btnNoobMode_pressed():
 		$btnNoobMode.add_color_override("font_color", Color.green)
 		$btnNoobMode.add_color_override("font_color_hover", Color.green)
 	else:
-		Globals.freeUpgrades = false
+		Globals.noobMode = false
 		$btnNoobMode.text = "Off"
 		$btnNoobMode.add_color_override("font_color", Color.red)
 		$btnNoobMode.add_color_override("font_color_hover", Color.red)
