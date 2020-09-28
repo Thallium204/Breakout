@@ -73,7 +73,7 @@ var objects = {
 		
 	},
 	"bricks": {
-		"powupRarity": {
+		"powerupRarity": {
 			"levels": [0.02, 0.03, 0.04, 0.05, 0.06, 0.07, 0.08, 0.09, 0.1, 0.11], 
 			"baseCost": 100, 
 			"modCost": 1.5
