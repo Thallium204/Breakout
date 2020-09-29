@@ -1,8 +1,7 @@
 extends Popup
 
 
-
-func _input(event):
+func _on_popupPaused_gui_input(event):
 	if not visible:
 		return
 	if event is InputEventScreenTouch:
@@ -10,7 +9,6 @@ func _input(event):
 			get_tree().paused = false
 			hide()
 			get_parent().currentPopup = null
-
 
 func _on_popupPaused_about_to_show():
 	get_parent().currentPopup = self
@@ -22,7 +20,6 @@ func _on_texPauseButton_pressed():
 	popup_centered()
 
 func _on_btnMenu_pressed():
+	get_tree().paused = false
+	Globals.updateScores()
 	get_tree().change_scene("res://Scenes/Menu.tscn")
-	
-
-

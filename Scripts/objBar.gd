@@ -26,3 +26,6 @@ func updateBarSize():
 	colorSides.margin_bottom = barSize.y / 2
 	$shapeBar.shape.radius = barSize.y / 2
 	$shapeBar.shape.height = barWidth - barSize.y
+
+func activatePowerup(pwrName):
+	print(pwrName)

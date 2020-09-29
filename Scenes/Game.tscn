@@ -149,7 +149,6 @@ margin_left = 688.0
 margin_right = 940.0
 margin_bottom = 190.0
 size_flags_horizontal = 3
-disabled = true
 text = "Store"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -223,6 +222,8 @@ __meta__ = {
 [connection signal="about_to_show" from="popupGameOver" to="popupGameOver" method="_on_popupGameOver_about_to_show"]
 [connection signal="pressed" from="popupGameOver/contButtons/btnMenu" to="popupGameOver" method="_on_btnMenu_pressed"]
 [connection signal="pressed" from="popupGameOver/contButtons/btnPlayAgain" to="popupGameOver" method="_on_btnPlayAgain_pressed"]
+[connection signal="pressed" from="popupGameOver/contButtons/btnStore" to="popupGameOver" method="_on_btnStore_pressed"]
 [connection signal="pressed" from="texPauseButton" to="popupPaused" method="_on_texPauseButton_pressed"]
 [connection signal="about_to_show" from="popupPaused" to="popupPaused" method="_on_popupPaused_about_to_show"]
+[connection signal="gui_input" from="popupPaused" to="popupPaused" method="_on_popupPaused_gui_input"]
 [connection signal="pressed" from="popupPaused/btnMenu" to="popupPaused" method="_on_btnMenu_pressed"]

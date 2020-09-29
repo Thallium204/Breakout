@@ -7,6 +7,8 @@ var level = 1
 var colorArray = []
 var scrDiv = 0.5
 var currentPopup = null
+var rng = RandomNumberGenerator.new()
+onready var powerupRarity = Globals.getUpgradeValue("bricks", "powerupRarity")
 
 export(int) var rows
 export(int) var columns
@@ -31,6 +33,10 @@ func generateRow(initial = false):
 	# instances objBrick, sets its paramters, changes its value and adds it as a child of the Bricks node
 	for colPos in range(columns):
 		var objBrick = objBrick_load.instance()
+		rng.randomize()
+		var prob = rng.randf_range(0, 1)
+		if prob <= powerupRarity:
+			objBrick.powerup = "MULTI"
 		var color = colorArray[(level - 1) % colorArray.size()]
 		objBrick.configure(brickSpacing, level, color)
 		objBrick.position = Vector2(colPos * brickSpacing.x, - level * brickSpacing.y) + Globals.brickGap / 2

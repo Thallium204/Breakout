@@ -73,7 +73,7 @@ var objects = {
 		
 	},
 	"bricks": {
-		"powupRarity": {
+		"powerupRarity": {
 			"levels": [0.02, 0.03, 0.04, 0.05, 0.06, 0.07, 0.08, 0.09, 0.1, 0.11], 
 			"baseCost": 100, 
 			"modCost": 1.5
@@ -152,17 +152,19 @@ func addToScore(scr):
 	get_tree().call_group("scoreUI","updateUI")
 	saveGame()
 
+func toggle(varName: String):
+	set(varName, not get(varName))
+	saveGame()
 
 
+# SAVE/LOAD
 
+var saveVariables = ["score","highScore","totalScore","upgs","freeUpgrades","noobMode"]
 
 func createSaveData():
-	var saveData = {
-		"score": score,
-		"highScore": highScore,
-		"totalScore": totalScore,
-		"upgs": upgs
-	}
+	var saveData = {}
+	for varName in saveVariables:
+		saveData[varName] = get(varName)
 	return saveData
 	
 func saveGame():
